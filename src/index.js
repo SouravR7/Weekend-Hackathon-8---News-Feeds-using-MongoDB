@@ -35,10 +35,6 @@ app.get("/newFeeds", (req, res) => {
   options.skip = offset;
   options.limit = limit;
   newsArticleModel.countDocuments({}, function (err) {
-    // if (err) {
-    //   res.status(500).send({ message: err.message });
-    //   return;
-    // }
     newsArticleModel.find({}, {}, options, function (err, result) {
       if (err) {
         res.status(500).send({ message: err.message });
